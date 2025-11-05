@@ -11,14 +11,14 @@ class Player:
     def property(self, prop):
         self.property_list.append(prop)
 
-    def operations(self, oper):
-        if oper == "move":
-            move = Board()
-            self.location += move.move()
+    def pay(self, oper):
+        self.money -= oper
 
-        elif oper == "got":
-            self.money += 100
+    def get_money(self, amount):
+        self.money += amount
 
-        elif oper == "pay":
-            how_much = int(input("how much money you need to pay? "))
-            self.money -= how_much
+    def move(self):
+        Board.move(self.location)
+
+    def purchase(self, amount):
+        self.money -= amount
